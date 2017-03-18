@@ -134,6 +134,10 @@
 		28E20D981E7C823000E68711 /* SendMeters */ = {
 			isa = PBXGroup;
 			children = (
+				28E20DD31E7D83A800E68711 /* Services */,
+				28E20DD01E7D82E800E68711 /* Models */,
+				28E20DD11E7D839000E68711 /* Views */,
+				28E20DD21E7D839800E68711 /* Controllers */,
 				28E20DCF1E7CC14100E68711 /* SendMeters.entitlements */,
 				28E20D9C1E7C823000E68711 /* AppDelegate.h */,
 				28E20D9D1E7C823000E68711 /* AppDelegate.m */,
@@ -173,6 +177,34 @@
 				28E20DC31E7C823000E68711 /* Info.plist */,
 			);
 			path = SendMetersUITests;
+			sourceTree = "<group>";
+		};
+		28E20DD01E7D82E800E68711 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		28E20DD11E7D839000E68711 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		28E20DD21E7D839800E68711 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		28E20DD31E7D83A800E68711 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		EFDB7E02481CA7A95045BF44 /* Frameworks */ = {
