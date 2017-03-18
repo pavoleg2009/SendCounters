@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17B0494BE2D4310D98EFD925 /* libPods-SendMetersUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C71BA16B42B0CF525850570 /* libPods-SendMetersUITests.a */; };
+		189885DC9D58E80A1FD6DC44 /* libPods-SendMeters.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C5B6C90C8A42657C66AE3 /* libPods-SendMeters.a */; };
 		28E20D9B1E7C823000E68711 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20D9A1E7C823000E68711 /* main.m */; };
 		28E20D9E1E7C823000E68711 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20D9D1E7C823000E68711 /* AppDelegate.m */; };
-		28E20DA11E7C823000E68711 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DA01E7C823000E68711 /* ViewController.m */; };
+		28E20DA11E7C823000E68711 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DA01E7C823000E68711 /* LoginController.m */; };
 		28E20DA41E7C823000E68711 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E20DA21E7C823000E68711 /* Main.storyboard */; };
 		28E20DA71E7C823000E68711 /* SendMeters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DA51E7C823000E68711 /* SendMeters.xcdatamodeld */; };
 		28E20DA91E7C823000E68711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E20DA81E7C823000E68711 /* Assets.xcassets */; };
 		28E20DAC1E7C823000E68711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E20DAA1E7C823000E68711 /* LaunchScreen.storyboard */; };
 		28E20DB71E7C823000E68711 /* SendMetersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DB61E7C823000E68711 /* SendMetersTests.m */; };
 		28E20DC21E7C823000E68711 /* SendMetersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DC11E7C823000E68711 /* SendMetersUITests.m */; };
+		7553C94C76DE3F635CEBCDC4 /* libPods-SendMetersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4E8F17AF49772EC3DC401F /* libPods-SendMetersTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02A0399D7F44F9D77164FD9F /* Pods-SendMetersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMetersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendMetersUITests/Pods-SendMetersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		28E20D961E7C823000E68711 /* SendMeters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SendMeters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E20D9A1E7C823000E68711 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		28E20D9C1E7C823000E68711 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		28E20D9D1E7C823000E68711 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		28E20D9F1E7C823000E68711 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		28E20DA01E7C823000E68711 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		28E20D9F1E7C823000E68711 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		28E20DA01E7C823000E68711 /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		28E20DA31E7C823000E68711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28E20DA61E7C823000E68711 /* SendMeters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SendMeters.xcdatamodel; sourceTree = "<group>"; };
 		28E20DA81E7C823000E68711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +57,15 @@
 		28E20DBD1E7C823000E68711 /* SendMetersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SendMetersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E20DC11E7C823000E68711 /* SendMetersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMetersUITests.m; sourceTree = "<group>"; };
 		28E20DC31E7C823000E68711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E20DCF1E7CC14100E68711 /* SendMeters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SendMeters.entitlements; sourceTree = "<group>"; };
+		2C4E8F17AF49772EC3DC401F /* libPods-SendMetersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendMetersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C71BA16B42B0CF525850570 /* libPods-SendMetersUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendMetersUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8470CBD937F881E3E16A87FF /* Pods-SendMetersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMetersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendMetersTests/Pods-SendMetersTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D09BA2758C1BFF555A71E78 /* Pods-SendMetersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMetersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendMetersTests/Pods-SendMetersTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A88C2F50EA632BA91E31CD0B /* Pods-SendMeters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMeters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendMeters/Pods-SendMeters.debug.xcconfig"; sourceTree = "<group>"; };
+		CB782F7C01EBA7DEA79D5428 /* Pods-SendMeters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMeters.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendMeters/Pods-SendMeters.release.xcconfig"; sourceTree = "<group>"; };
+		E96FE8CC67C03E1602E10FF1 /* Pods-SendMetersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMetersUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendMetersUITests/Pods-SendMetersUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FE7C5B6C90C8A42657C66AE3 /* libPods-SendMeters.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendMeters.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189885DC9D58E80A1FD6DC44 /* libPods-SendMeters.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7553C94C76DE3F635CEBCDC4 /* libPods-SendMetersTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +89,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B0494BE2D4310D98EFD925 /* libPods-SendMetersUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14AAD00A45968FBCA763667C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A88C2F50EA632BA91E31CD0B /* Pods-SendMeters.debug.xcconfig */,
+				CB782F7C01EBA7DEA79D5428 /* Pods-SendMeters.release.xcconfig */,
+				9D09BA2758C1BFF555A71E78 /* Pods-SendMetersTests.debug.xcconfig */,
+				8470CBD937F881E3E16A87FF /* Pods-SendMetersTests.release.xcconfig */,
+				02A0399D7F44F9D77164FD9F /* Pods-SendMetersUITests.debug.xcconfig */,
+				E96FE8CC67C03E1602E10FF1 /* Pods-SendMetersUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		28E20D8D1E7C823000E68711 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +116,8 @@
 				28E20DB51E7C823000E68711 /* SendMetersTests */,
 				28E20DC01E7C823000E68711 /* SendMetersUITests */,
 				28E20D971E7C823000E68711 /* Products */,
+				14AAD00A45968FBCA763667C /* Pods */,
+				EFDB7E02481CA7A95045BF44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +134,11 @@
 		28E20D981E7C823000E68711 /* SendMeters */ = {
 			isa = PBXGroup;
 			children = (
+				28E20DCF1E7CC14100E68711 /* SendMeters.entitlements */,
 				28E20D9C1E7C823000E68711 /* AppDelegate.h */,
 				28E20D9D1E7C823000E68711 /* AppDelegate.m */,
-				28E20D9F1E7C823000E68711 /* ViewController.h */,
-				28E20DA01E7C823000E68711 /* ViewController.m */,
+				28E20D9F1E7C823000E68711 /* LoginController.h */,
+				28E20DA01E7C823000E68711 /* LoginController.m */,
 				28E20DA21E7C823000E68711 /* Main.storyboard */,
 				28E20DA81E7C823000E68711 /* Assets.xcassets */,
 				28E20DAA1E7C823000E68711 /* LaunchScreen.storyboard */,
@@ -143,6 +175,16 @@
 			path = SendMetersUITests;
 			sourceTree = "<group>";
 		};
+		EFDB7E02481CA7A95045BF44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C5B6C90C8A42657C66AE3 /* libPods-SendMeters.a */,
+				2C4E8F17AF49772EC3DC401F /* libPods-SendMetersTests.a */,
+				3C71BA16B42B0CF525850570 /* libPods-SendMetersUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28E20DC61E7C823000E68711 /* Build configuration list for PBXNativeTarget "SendMeters" */;
 			buildPhases = (
+				534497D7F0CF5CF2DC52E9AA /* [CP] Check Pods Manifest.lock */,
 				28E20D921E7C823000E68711 /* Sources */,
 				28E20D931E7C823000E68711 /* Frameworks */,
 				28E20D941E7C823000E68711 /* Resources */,
+				F76274277ADEEF77327CB8AB /* [CP] Embed Pods Frameworks */,
+				A7BCAB1538D81790FE922AF8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28E20DC91E7C823000E68711 /* Build configuration list for PBXNativeTarget "SendMetersTests" */;
 			buildPhases = (
+				A416C14330FC8ABA5FE3E65D /* [CP] Check Pods Manifest.lock */,
 				28E20DAE1E7C823000E68711 /* Sources */,
 				28E20DAF1E7C823000E68711 /* Frameworks */,
 				28E20DB01E7C823000E68711 /* Resources */,
+				ADDFB1DEBDFF75DA832BC4F4 /* [CP] Embed Pods Frameworks */,
+				698001683B0A6B8DCFF26484 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28E20DCC1E7C823000E68711 /* Build configuration list for PBXNativeTarget "SendMetersUITests" */;
 			buildPhases = (
+				B52EE2F405EB4898F3AB74C9 /* [CP] Check Pods Manifest.lock */,
 				28E20DB91E7C823000E68711 /* Sources */,
 				28E20DBA1E7C823000E68711 /* Frameworks */,
 				28E20DBB1E7C823000E68711 /* Resources */,
+				3C66D6250283008EC8F08DAB /* [CP] Embed Pods Frameworks */,
+				FAE8EF7EEDA8E0617A699450 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +263,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4Y4DUJVCEZ;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					28E20DB11E7C823000E68711 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -274,12 +330,150 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C66D6250283008EC8F08DAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendMetersUITests/Pods-SendMetersUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		534497D7F0CF5CF2DC52E9AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		698001683B0A6B8DCFF26484 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendMetersTests/Pods-SendMetersTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A416C14330FC8ABA5FE3E65D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A7BCAB1538D81790FE922AF8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendMeters/Pods-SendMeters-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADDFB1DEBDFF75DA832BC4F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendMetersTests/Pods-SendMetersTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B52EE2F405EB4898F3AB74C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F76274277ADEEF77327CB8AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendMeters/Pods-SendMeters-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAE8EF7EEDA8E0617A699450 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendMetersUITests/Pods-SendMetersUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		28E20D921E7C823000E68711 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28E20DA11E7C823000E68711 /* ViewController.m in Sources */,
+				28E20DA11E7C823000E68711 /* LoginController.m in Sources */,
 				28E20DA71E7C823000E68711 /* SendMeters.xcdatamodeld in Sources */,
 				28E20D9E1E7C823000E68711 /* AppDelegate.m in Sources */,
 				28E20D9B1E7C823000E68711 /* main.m in Sources */,
@@ -427,8 +621,10 @@
 		};
 		28E20DC71E7C823000E68711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A88C2F50EA632BA91E31CD0B /* Pods-SendMeters.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SendMeters/SendMeters.entitlements;
 				DEVELOPMENT_TEAM = 4Y4DUJVCEZ;
 				INFOPLIST_FILE = SendMeters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -439,8 +635,10 @@
 		};
 		28E20DC81E7C823000E68711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB782F7C01EBA7DEA79D5428 /* Pods-SendMeters.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SendMeters/SendMeters.entitlements;
 				DEVELOPMENT_TEAM = 4Y4DUJVCEZ;
 				INFOPLIST_FILE = SendMeters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -451,6 +649,7 @@
 		};
 		28E20DCA1E7C823000E68711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D09BA2758C1BFF555A71E78 /* Pods-SendMetersTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4Y4DUJVCEZ;
@@ -464,6 +663,7 @@
 		};
 		28E20DCB1E7C823000E68711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8470CBD937F881E3E16A87FF /* Pods-SendMetersTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4Y4DUJVCEZ;
@@ -477,6 +677,7 @@
 		};
 		28E20DCD1E7C823000E68711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02A0399D7F44F9D77164FD9F /* Pods-SendMetersUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 4Y4DUJVCEZ;
 				INFOPLIST_FILE = SendMetersUITests/Info.plist;
@@ -489,6 +690,7 @@
 		};
 		28E20DCE1E7C823000E68711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E96FE8CC67C03E1602E10FF1 /* Pods-SendMetersUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 4Y4DUJVCEZ;
 				INFOPLIST_FILE = SendMetersUITests/Info.plist;
@@ -518,6 +720,7 @@
 				28E20DC81E7C823000E68711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28E20DC91E7C823000E68711 /* Build configuration list for PBXNativeTarget "SendMetersTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +729,7 @@
 				28E20DCB1E7C823000E68711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28E20DCC1E7C823000E68711 /* Build configuration list for PBXNativeTarget "SendMetersUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +738,7 @@
 				28E20DCE1E7C823000E68711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
