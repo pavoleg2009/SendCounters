@@ -9,6 +9,7 @@
 #import "LoginController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+@import Firebase;
 
 @interface LoginController ()
 
@@ -38,9 +39,7 @@
         // User is logged in, do work such as go to next view controller.
         NSLog(@"=== viewDidLoad: FB user currentAccessToken != nil");
         [self onFacebookLogin];
-        
-    
-        
+                
     }
 }
 
@@ -50,6 +49,7 @@
     [self.view addSubview:loginButtonsStack];
     
     loginButtonsStack.axis = UILayoutConstraintAxisVertical;
+    loginButtonsStack.alignment = UIStackViewAlignmentFill;
     loginButtonsStack.distribution = UIStackViewDistributionFillEqually;
     loginButtonsStack.spacing = 8;
 
@@ -66,25 +66,15 @@
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.delegate = self;
-    //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    
     loginButton.readPermissions = @[@"public_profile", @"email"];
     [loginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    //[self.loginButtonsStack addSubview:loginButton];
     [self.loginButtonsStack addArrangedSubview:loginButton];
-    
-//    [[loginButton.leftAnchor constraintEqualToAnchor:self.loginButtonsStack.leftAnchor constant:16]  setActive:YES];
-//    [[loginButton.topAnchor constraintEqualToAnchor:self.loginButtonsStack.topAnchor constant:40] setActive:YES];
-//    [[loginButton.rightAnchor constraintEqualToAnchor:self.loginButtonsStack.rightAnchor constant:-16] setActive:YES];
-//    [[loginButton.heightAnchor constraintEqualToConstant:50] setActive:YES];
-    
     self.loginButton = loginButton;
 }
 
 - (void)setCustomFBLoginButton {
     UIButton *customFBLoginButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [customFBLoginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
     [customFBLoginButton setBackgroundColor: [UIColor colorWithRed:59/255.0 green:86/255.0 blue:152/255.0 alpha:1]];
     [customFBLoginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [customFBLoginButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
@@ -108,7 +98,8 @@
             NSLog(@"=== ERROR: %@", error.debugDescription);
             return;
         }
-        NSLog(@"logged with FB with Token: %@", result.token.tokenString);
+        NSLog(@"=== SUCCESS: Logged to facebook from cusromButton. Result Token: %@", result.token.tokenString);
+        [self onFacebookLogin];
     }];
 }
 
@@ -117,21 +108,51 @@
 }
 
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
-    if (error != nil) {
+    if (error) {
         NSLog(@"=== ERROR:  %@", error);
     }
     
-    NSLog(@"=== INFO: Successfully logged with Facebook/ didCompleteWithResult");
+    NSLog(@"=== SUCCESS: Successfully logged with Facebook Native Button/ didCompleteWithResult");
     [self onFacebookLogin];
 }
 
 - (void)onFacebookLogin {
+    
+
+    FIRAuthCredential *credentials = [FIRFacebookAuthProvider
+                                      credentialWithAccessToken:[FBSDKAccessToken currentAccessToken].tokenString];
+                                      
+    [[FIRAuth auth] signInWithCredential:credentials
+                              completion:^(FIRUser * _Nullable user, NSError * _Nullable error)
+    {
+        if (error) {
+            NSLog(@"=== ERROR trying to sign in to Friebase with Facebook credentials: %@", error);
+            return;
+        }
+        NSLog(@"=== SUCCESS: Logged to Firebase with FB Credentials. Firebase user: %@", user);
+        
+    }];
+    
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"id, name, email, picture"}]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
          if (error) {
-             NSLog(@"=== ERROR fetching FB User Data: %@", error);
+             NSLog(@"=== ERROR fetching Facebook User Data: %@", error);
          }
-         NSLog(@"=== fetched user: %@", result);}];
+         NSLog(@"=== fetched user: %@", result);
+     }];
 };
 
+
+@end
+
+//.h file
+@interface UIColor (JPExtras)
++ (UIColor *)colorWithR:(CGFloat)red G:(CGFloat)green B:(CGFloat)blue A:(CGFloat)alpha;
+@end
+
+//.m file
+@implementation UIColor (JPExtras)
++ (UIColor *)colorWithR:(CGFloat)red G:(CGFloat)green B:(CGFloat)blue A:(CGFloat)alpha {
+    return [UIColor colorWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0) alpha:alpha];
+}
 @end

@@ -18,6 +18,7 @@
 		28E20DAC1E7C823000E68711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E20DAA1E7C823000E68711 /* LaunchScreen.storyboard */; };
 		28E20DB71E7C823000E68711 /* SendMetersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DB61E7C823000E68711 /* SendMetersTests.m */; };
 		28E20DC21E7C823000E68711 /* SendMetersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20DC11E7C823000E68711 /* SendMetersUITests.m */; };
+		28E20DD51E7D915300E68711 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28E20DD41E7D915300E68711 /* GoogleService-Info.plist */; };
 		7553C94C76DE3F635CEBCDC4 /* libPods-SendMetersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4E8F17AF49772EC3DC401F /* libPods-SendMetersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		28E20DC11E7C823000E68711 /* SendMetersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMetersUITests.m; sourceTree = "<group>"; };
 		28E20DC31E7C823000E68711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E20DCF1E7CC14100E68711 /* SendMeters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SendMeters.entitlements; sourceTree = "<group>"; };
+		28E20DD41E7D915300E68711 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C4E8F17AF49772EC3DC401F /* libPods-SendMetersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendMetersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C71BA16B42B0CF525850570 /* libPods-SendMetersUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendMetersUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8470CBD937F881E3E16A87FF /* Pods-SendMetersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendMetersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendMetersTests/Pods-SendMetersTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				28E20DAA1E7C823000E68711 /* LaunchScreen.storyboard */,
 				28E20DAD1E7C823000E68711 /* Info.plist */,
 				28E20DA51E7C823000E68711 /* SendMeters.xcdatamodeld */,
+				28E20DD41E7D915300E68711 /* GoogleService-Info.plist */,
 				28E20D991E7C823000E68711 /* Supporting Files */,
 			);
 			path = SendMeters;
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E20DAC1E7C823000E68711 /* LaunchScreen.storyboard in Resources */,
+				28E20DD51E7D915300E68711 /* GoogleService-Info.plist in Resources */,
 				28E20DA91E7C823000E68711 /* Assets.xcassets in Resources */,
 				28E20DA41E7C823000E68711 /* Main.storyboard in Resources */,
 			);

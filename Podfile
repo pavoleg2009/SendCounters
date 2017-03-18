@@ -20,6 +20,7 @@ target 'SendMeters' do
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
+pod 'Firebase/Auth'
 
 
 end
