@@ -10,19 +10,24 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 @import Firebase;
+@import GoogleSignIn;
 
-@interface LoginController ()
+@interface LoginController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate>
 
-@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *nativeFBLoginButton;
 @property (weak, nonatomic) IBOutlet UIButton *customFBLoginButton;
 @property (weak, nonatomic) IBOutlet UIStackView *loginButtonsStack;
+@property (weak, nonatomic) IBOutlet GIDSignInButton *nativeGoogleLoginButton;
 
 - (void) setLoginButtonsStack;
-- (void) setNativeFBLoginButton;
-- (void) setCustomFBLoginButton;
+- (void) setNativeFacebookLoginButton;
+- (void) setCustomFacebookLoginButton;
+- (void) setNativeGoogleLoginButton;
+- (void) setCustomGoogleLoginButton;
 
 - (void) loginWithFacebook;
 - (void) onFacebookLogin;
+- (void) loginWithGoogle;
 
 @end
 
@@ -32,15 +37,16 @@
     [super viewDidLoad];
     
     [self setLoginButtonsStack];
-    [self setNativeFBLoginButton];
-    [self setCustomFBLoginButton];
-    
-    if ([FBSDKAccessToken currentAccessToken]) {
-        // User is logged in, do work such as go to next view controller.
-        NSLog(@"=== viewDidLoad: FB user currentAccessToken != nil");
-        [self onFacebookLogin];
-                
-    }
+    [self setNativeFacebookLoginButton];
+    [self setCustomFacebookLoginButton];
+    [self setNativeGoogleLoginButton];
+    [self setCustomGoogleLoginButton];
+//    if ([FBSDKAccessToken currentAccessToken]) {
+//        // User is logged in, do work such as go to next view controller.
+//        NSLog(@"=== viewDidLoad: FB user currentAccessToken != nil");
+//        [self onFacebookLogin];
+//    }
+
 }
 
 - (void)setLoginButtonsStack {
@@ -54,53 +60,79 @@
     loginButtonsStack.spacing = 8;
 
     [[loginButtonsStack.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:8]  setActive:YES];
-    [[loginButtonsStack.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20] setActive:YES];
+    [[loginButtonsStack.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:24] setActive:YES];
     [[loginButtonsStack.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-8] setActive:YES];
-    [[loginButtonsStack.heightAnchor constraintEqualToConstant:108] setActive:YES];
+    [[loginButtonsStack.heightAnchor constraintEqualToConstant:224] setActive:YES];
     //[[loginButtonsStack.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-8] setActive:YES];
     
     self.loginButtonsStack = loginButtonsStack;
 };
 
-- (void)setNativeFBLoginButton {
+- (void)setNativeFacebookLoginButton {
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.delegate = self;
-    loginButton.readPermissions = @[@"public_profile", @"email"];
     [loginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.loginButtonsStack addArrangedSubview:loginButton];
-    self.loginButton = loginButton;
+    self.nativeFBLoginButton = loginButton;
+    
+    loginButton.delegate = self;
+    loginButton.readPermissions = @[@"public_profile", @"email"];
 }
 
-- (void)setCustomFBLoginButton {
-    UIButton *customFBLoginButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [customFBLoginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [customFBLoginButton setBackgroundColor: [UIColor colorWithRed:59/255.0 green:86/255.0 blue:152/255.0 alpha:1]];
-    [customFBLoginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [customFBLoginButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
+- (void)setCustomFacebookLoginButton {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [btn setBackgroundColor: [UIColor colorWithRed:59/255.0 green:86/255.0 blue:152/255.0 alpha:1]];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn setTitle:@"Login with Facebook" forState:UIControlStateNormal];
     
-    [customFBLoginButton addTarget:nil
-                            action:@selector(loginWithFacebook)
-                  forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:nil
+            action:@selector(loginWithFacebook)
+  forControlEvents:UIControlEventTouchUpInside];
     
-    [self.loginButtonsStack addArrangedSubview:customFBLoginButton];
-    self.customFBLoginButton = customFBLoginButton;
-    
+    [self.loginButtonsStack addArrangedSubview:btn];
+    self.customFBLoginButton = btn;
 }
-- (void) loginWithFacebook {
-    NSLog(@"Trying to loging with Facebook");
+
+- (void) setNativeGoogleLoginButton {
+    GIDSignInButton *nativeGoogleLoginButton = [[GIDSignInButton alloc] init];
+    [nativeGoogleLoginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.loginButtonsStack addArrangedSubview:nativeGoogleLoginButton];
+    [GIDSignIn sharedInstance].uiDelegate = self;
+};
+
+- (void) setCustomGoogleLoginButton {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [btn setBackgroundColor: [UIColor colorWithRed:219/255.0 green:81/255.0 blue:73/255.0 alpha:1]];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn setTitle:@"Login with Google" forState:UIControlStateNormal];
     
+    [btn addTarget:nil
+            action:@selector(loginWithGoogle)
+  forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.loginButtonsStack addArrangedSubview:btn];
+    self.customFBLoginButton = btn;
+};
+
+- (void) loginWithFacebook {
     [[[FBSDKLoginManager alloc] init] logInWithReadPermissions:@[@"public_profile", @"email"]
                                             fromViewController:self
                                                        handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
     {
         if(error) {
-            NSLog(@"=== ERROR: %@", error.debugDescription);
+            NSLog(@"=== ERROR trying to connect to Facebook: %@", error.debugDescription);
             return;
         }
         NSLog(@"=== SUCCESS: Logged to facebook from cusromButton. Result Token: %@", result.token.tokenString);
         [self onFacebookLogin];
     }];
+}
+
+- (void) loginWithGoogle {
+    NSLog(@"=== LOGIN WITH GOOGLE");
+    [[GIDSignIn sharedInstance] signIn];
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
@@ -138,12 +170,14 @@
          if (error) {
              NSLog(@"=== ERROR fetching Facebook User Data: %@", error);
          }
-         NSLog(@"=== fetched user: %@", result);
+         //NSLog(@"=== fetched user: %@", result);
      }];
 };
 
 
 @end
+
+
 
 //.h file
 @interface UIColor (JPExtras)

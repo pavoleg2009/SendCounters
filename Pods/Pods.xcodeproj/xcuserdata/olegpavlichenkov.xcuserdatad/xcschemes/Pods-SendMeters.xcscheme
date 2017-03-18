@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AB8201CB6A73E341693F01B1311D0A9A'
+               BlueprintIdentifier = '6975267C4C73110D96A14DCEE696D7FA'
                BlueprintName = 'Pods-SendMeters'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-SendMeters.a'>

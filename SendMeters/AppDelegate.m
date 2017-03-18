@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 @import Firebase;
+@import GoogleSignIn;
 
-@interface AppDelegate ()
+@interface AppDelegate () <GIDSignInDelegate>
 
 @end
 
@@ -18,50 +19,91 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  
-  [FIRApp configure];  
-  [[FBSDKApplicationDelegate sharedInstance] application:application
-                           didFinishLaunchingWithOptions:launchOptions];
-  return YES;
+    
+    [FIRApp configure];
+    
+    [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
+    [GIDSignIn sharedInstance].delegate = self;
+    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  
-  BOOL handled = [[FBSDKApplicationDelegate sharedInstance]
-                  application:application
-                  openURL:url
-                  sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                  annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-                  ];
-  return handled;
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    
+    BOOL handledByFacebook = [[FBSDKApplicationDelegate sharedInstance]
+                    application:application
+                    openURL:url
+                    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                    ];
+    
+    BOOL handledByGoogle = [[GIDSignIn sharedInstance] handleURL:url
+                                        sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                               annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+    
+    return handledByFacebook || handledByGoogle;
+}
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    if (error) {
+        NSLog(@"=== ERROR trying to connect to Google: %@", error.debugDescription);
+        return;
+    }
+    
+    NSLog(@"=== SUCCESS: Logged to Google. Result User: %@", user.description);
+
+    GIDAuthentication *authentication = user.authentication;
+    FIRAuthCredential *credential =
+    [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                     accessToken:authentication.accessToken];
+    
+    [[FIRAuth auth] signInWithCredential:credential
+                              completion:^(FIRUser * _Nullable user, NSError * _Nullable error)
+    {
+        if (error) {
+            NSLog(@"=== ERROR trying to connect to Firebase with Google credentials: %@", error.debugDescription);
+            return;
+        }
+        NSLog(@"=== SUCCESS: Logged to Firebase with Google credentials. Result User: %@", user.description);
+        
+    }];
+}
+
+- (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    // Perform any operations when the Google user disconnects from app here.
+    // ...
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-  // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-  // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-  // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-  // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-  // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-  // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-  // Saves changes in the application's managed object context before the application terminates.
-  [self saveContext];
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Saves changes in the application's managed object context before the application terminates.
+    [self saveContext];
 }
 
 
@@ -86,7 +128,7 @@
                      * The device is out of space.
                      * The store could not be migrated to the current model version.
                      Check the error message to determine what the actual problem was.
-                    */
+                     */
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }

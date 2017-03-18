@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+@import GoogleSignIn;
 
-@interface LoginController : UIViewController <FBSDKLoginButtonDelegate>
+@interface LoginController : UIViewController
 
 
 @end
